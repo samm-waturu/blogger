@@ -13,7 +13,7 @@ function Header() {
             <div className={mont.className}>
                 <header className="header-block row">
                     <div className="blog-title">
-                        <h1>read.</h1>
+                        <h1>the stylist.</h1>
                     </div>
                 </header>
             </div>

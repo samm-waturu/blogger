@@ -10,6 +10,8 @@ h1{
 }
 p{
 }
+
+
 a:hover{
   text-decoration: none;
 }
@@ -33,7 +35,7 @@ a:hover{
 }
 .blog-title h1{
   text-align: center;
-  font-size: 80px;
+  font-size: 78px;
   margin-top: 26px;
   font-weight: 700;
 }
@@ -73,7 +75,14 @@ a:hover{
 .post-content a {
   border-bottom: #000 solid 1px
 }
-.post-data headImg{
+.post-data img{
+  min-width:auto;
+  display: block;
+  margin: auto;
+  max-width: 100%;
+}
+
+.images {
   min-width:auto;
   display: block;
   margin: auto;
@@ -123,7 +132,7 @@ a:hover{
 }
 
 .post-titles h1{
-  font-size:30px;
+  font-size:24px;
   display: inline;
   line-height: 4rem;
 }

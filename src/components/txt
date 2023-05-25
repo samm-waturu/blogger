@@ -1,0 +1,41 @@
+<div className={merri.className}>
+
+                <section className="post-list post-content">
+
+                    <div className="post-data">
+
+                        {/*Starting image*/}
+
+                        <div className={'headImg'}>
+                            <Image src={post.mainImage ? urlFor(post.mainImage).url() : undefined } alt={post.description}/>
+                        </div>
+
+                        <h1 className="post-page-title">{post.title}</h1>
+
+                        <p className="post-meta-data">{new Date(post._createdAt).toLocaleDateString()}</p>
+
+                        <PortableText value={post.body} components={components} onMissingComponent={false} />
+
+                    </div>
+
+                    <div className="author-box">
+                        <Image className={'author-img'} src={post.author.image ? urlFor(post.author.image).url() : authorPlaceHolder } alt={post.author.name} />
+                    </div>
+
+                    <div className="row">
+                        <div className="col-md-6 padded">
+                            <p><b>Prev</b>&nbsp;
+                                <a href="#">Beautiful</a></p>
+                        </div>
+                        <div className="col-md-6 padded righted">
+
+                            <p>
+                                <a href="#">Webpage</a>&nbsp;<b>Next</b>
+                            </p>
+
+                        </div>
+                    </div>
+
+                </section>
+
+            </div>

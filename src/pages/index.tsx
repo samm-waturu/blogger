@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Footer_main from "@/components/Footer_main";
 import Posts from "@/components/Posts";
 import {Post} from "../../typings";
 import {GetServerSideProps} from "next";
@@ -40,8 +40,8 @@ export default function Home({posts}: Props) {
                     </section>
 
                 </>
-                {/* Footer section*/}
-                <Footer/>
+                {/* Footer_main section*/}
+                <Footer_main/>
 
             </>
         </>

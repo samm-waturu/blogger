@@ -9,11 +9,11 @@ import Image from 'next/image'
 import placeHolder from '../../img/post-image.png'
 import authorPlaceHolder from '../../img/author-avatar.png'
 import {JSXElementConstructor, Key, ReactElement, ReactFragment, ReactNode, ReactPortal, useState} from 'react'
-import {Merriweather} from "next/font/google";
-import Footer from "@/components/Footer";
+import {Radley} from "next/font/google";
+import Footer_main from "@/components/Footer_main";
 
-const merri = Merriweather({
-    weight: ['300'],
+const rad = Radley({
+    weight: ['400'],
     style: ['normal'],
     subsets: ['latin'],
     display: 'swap',
@@ -41,9 +41,11 @@ function PostedContent({post}: slugPost) {
             image: ({value}) => {
                 value = value.asset
                 return (
-                    <p>
-                        <Image src={urlFor(value).url()} alt={post.description} width={600} height={250} />
-                    </p>
+
+                    <h3 id={'whataboutimages'}>
+                        {/*<Image src={urlFor(value).url()} alt={post.description} width={600} height={320}/>*/}
+                    </h3>
+
                 )
             }
         },
@@ -59,74 +61,60 @@ function PostedContent({post}: slugPost) {
             bullet: ({children}) => <ul>{children}</ul>
         },
         listItem: {
-            bullet: ({children}) => <li>{children}</li>,
+            bullet: ({children}) => <li style={{marginBottom: 6}}>{children}</li>,
             number: ({children}) => <ol>{children}</ol>
         }
 
     }
 
-    /*
-    const {register, handleSubmit, formState: {errors}} = useForm<FormValues>()
-    const onSubmit: SubmitHandler<FormValues> = async (data) => {
-      await fetch('/api/createComment', {
-        method: 'POST',
-        body: JSON.stringify(data)
-      }).then(() => {
-        // console.log(data)
-        setSumbitted({current: true})
-      }).catch((err) => {
-        // console.log(`err`)
-        setSumbitted({current: false})
-
-      })
-    }
-     */
     return (
 
-        <>
+        <div className={rad.className}>
 
-            <div className={merri.className}>
 
-                <section className="post-list post-content">
+            <section className="post-list post-content">
 
-                    <div className="post-data">
+                <div className="post-data">
 
-                        {/*Starting image*/}
+                    {/*<img src="post.html"></img>*/}
 
-                        <div className={'headImg'}>
-                            <Image src={post.mainImage ? urlFor(post.mainImage).url() : placeHolder } alt={post.description}/>
-                        </div>
+                        {/*<Image className={'images'} src={post.mainImage ? urlFor(post.mainImage).url() : placeHolder } width={600} height={250} alt={post.description}/>*/}
 
-                        <h1 className="post-page-title">{post.title}</h1>
+                    <h1 className="post-page-title">{post.title}</h1>
 
-                        <p className="post-meta-data">{new Date(post._createdAt).toLocaleDateString()}</p>
+                    <p className="post-meta-data">{new Date(post._createdAt).toDateString()}</p>
 
-                        <PortableText value={post.body} components={components} onMissingComponent={false} />
+                    <PortableText value={post.body} components={components} onMissingComponent={false} />
 
-                    </div>
+                </div>
 
-                    <div className="author-box">
-                        <Image className={'author-img'} src={post.author.image ? urlFor(post.author.image).url() : authorPlaceHolder } alt={post.author.name} />
-                    </div>
+                <div className="author-box">
+                    <Image className={'author-box'} src={urlFor(post.author.image).url()} alt={post.author.name} width={50} height={50} />
+                    <p>
+                        {post.author.name}
+                    </p>
+                </div>
 
+                {/*
                     <div className="row">
-                        <div className="col-md-6 padded">
-                            <p><b>Prev</b>&nbsp;
-                                <a href="#">Beautiful</a></p>
-                        </div>
-                        <div className="col-md-6 padded righted">
-
-                            <p>
-                                <a href="#">Webpage</a>&nbsp;<b>Next</b></p>
-                        </div>
+                    <div className="col-md-6 paddd">
+                        <p><b>Prev</b>&nbsp;
+                            <a href="#">Beautiful</a></p>
                     </div>
+                    <div className="col-md-6 paddd righted">
 
-                </section>
+                        <p>
+                            <a href="#">Webpage</a>&nbsp;<b>Next</b></p>
+                    </div>
+                </div>
+                */}
 
-            </div>
 
-            <Footer/>
-        </>
+
+            </section>
+
+            <Footer_main/>
+        </div>
 
     )
 }
